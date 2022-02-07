@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        
+        <title>Non-native Page</title>
+        
+        <link rel="stylesheet" href="css/my-app.css" type="text/css">
+        <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        
+        
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <!-- MDB core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+
+        
+    </head>
+    
+    
+    <body style="background-color: #D2E7D6">
+        
+    
+    <!--SLIDE-OUT MENU CODE START-->    
+        
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            
+          <a href="index.html" style="padding: 0px"><img src="logo.png" alt="snailLogo" style="width:175px;height:110px" href="index.html" class="center"></a>
+          <h3 class="HISnails">HAWAIIAN LAND SNAILS</h3><br>
+            
+          <a href="native.html" id="nativeButton">native</a>
+          <a href="non-native.html" id="non-nativeButton">non-native</a>
+          <a href="contact.html" id="contactButton">contact</a>
+        </div>
+
+        <br>
+        <span id="sandwich" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        
+        
+        <script>
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        </script>
+    
+    <!--SLIDE-OUT MENU CODE END-->      
+        
+    <div class="header">
+        <h1 class="HISnails">NON-NATIVE SNAILS</h1>    
+    </div>
+  
+        
+        
+    <!-- NON-NATIVE SNAIL CAROUSEL START-->    
+    <div class="container my-4">
+    
+    <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel" data-interval="3000">
+          
+    <div class="carousel-inner">    
+          
+      <div id="nonnativeCarousel"></div>
+              
+      </div>
+      <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>  
+
+   <!-- NON-NATIVE SNAIL CAROUSEL END-->  
+
+    
+    <p class="paragraph" style="text-align: center">Click on snail to learn more</p> <br> 
+    
+        
+    
+    <p class="paragraph">Compounding the extinction plight of the Hawaiian land snail fauna, Hawaii has more established non-indigenous land snails than any other island or archipelago in the Pacific. Many of these are invasive in natural ecosystems and/or vectors of human and livestock diseases, such as the Rat Lungworm (Angiostrongylus cantonensis). As of 2018, there are now 53 established non-indigenous land snails established in Hawaii.</p> <br>
+        
+
+    <div id="centerButton"><a href="non-nativeIDPage.html"><button class="button">IDENTIFY YOUR NON-NATIVE SNAIL</button></a></div>
+        
+    <br><br><br>
+
+    <script type="text/javascript" src="js/non-nativeCarousel.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        
+        <title>Final Snail Page</title>
+        
+        <link rel="stylesheet" href="css/my-app.css" type="text/css">
+        <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        
+
+        
+    </head>
+    
+    
+    <body style="background-color: #D2E7D6">    
+        
+        
+        <button class="button" style="margin: 20px 20px 20px 20px" onclick="goBack()">&#8592;</button>
+
+        <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+
+        <div id="finalPage"></div>
+
+        <script>
+            
+        var nativeInfo = [
+        
+    ];
+
+
+        var value = location.search.substring(1);
+            
+        var queryString = value.toUpperCase();
+        
+        var a;    
+            
+            document.getElementById("finalPage").innerHTML = '<h1 id="title" class="header" style="padding-top:12px; margin-top: 0px !important"><i>' + nativeInfo[a][0] + "</i></h1>" + '<a id="centerButton"><img class="finalImg"; src= "non-nativeSnails/' + nativeInfo[a][1] + '"><img></a>' + '<p class="paragraph" style="margin-top: 20px">  <strong>Common Name:</strong> &nbsp'+ nativeInfo[a][2] +'</p>' + '<p class="paragraph">  <strong>Description:</strong> &nbsp'+ nativeInfo[a][3] +'</p>' + '<p class="paragraph">  <strong>Habitat:</strong> &nbsp'+ nativeInfo[a][4] +'</p>' + '<p class="paragraph">  <strong>Native Range:</strong> &nbsp'+ nativeInfo[a][5] +'</p>' + '<p class="paragraph">  <strong>Invasive Range:</strong> &nbsp'+ nativeInfo[a][6] +'</p>' + '<p class="paragraph">  <strong>Ecology:</strong> &nbsp'+ nativeInfo[a][7] +'</p>' + '<p class="paragraph">  <strong>Threats:</strong> &nbsp'+ nativeInfo[a][8] +'</p><br>';
+
+        </script>
+        
+        
+        
+    </body>
+    
+    
+    
+</html>

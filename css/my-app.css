@@ -1,0 +1,279 @@
+body {
+  font-family: "Lao Sangam MN", sans-serif;
+}
+
+.HISnails {
+    font-family: "Lao Sangam MN", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    margin: 20px 0px 10px;
+    color: #818181;
+}
+
+            
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background: linear-gradient(#FFFFFF 45%, #B8D8BE 45%);
+  overflow-x: hidden;
+  transition: 0.1s;
+  padding-top: 60px;
+  border: none;
+}
+
+
+.sidenavRight {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 25%;
+  overflow-x: hidden;
+  padding-top:30px;
+  border:none;
+}
+
+
+#nativeButton {
+    padding: 22px 22px 22px 10px;
+    background-color: #E0F0E3;
+    text-align: center;
+}
+
+#non-nativeButton {
+    padding: 22px 22px 22px 10px;
+    background-color: #D2E7D6;
+    text-align: center;
+}
+
+#contactButton {
+    padding: 22px 22px 22px 10px;
+    background-color: #C8E1CC;
+    text-align: center;
+}
+
+
+#idName {
+    text-align: center;
+    color: #818181;
+    font-size: 16px;
+    font-family: "Lao Sangam MN", sans-serif;
+    margin: 0px;
+    
+}
+
+
+#carouselImageStyle {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+    height: 200px !important; 
+}
+
+
+#snailImgList {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width:100%;
+    max-height: 200px;
+}
+
+
+#filterButton {
+    font-size:20px;
+    cursor:pointer;
+    text-align: right;
+    border-radius: 25px;
+    color: #818181;
+    background-color: white;
+    padding: 5px 20px 4px 20px; 
+    font-family: Lao Sangam MN, sans-serif;
+    float: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 20px 30px;
+    cursor: pointer;
+    border: 1px solid #D3D3D3;
+
+}
+
+
+
+.sidenav a {
+  padding: 12px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 22px;
+  font-family: "Lao Sangam MN", sans-serif;
+  color: #818181;
+  display: block;
+  transition: 0.1s;
+}
+
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+ #sandwich {
+    padding: 8px 8px 8px 32px;
+     color: #818181;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.bannerText {
+    font-size:20pt; 
+    font-family: Lao Sangam MN, sans-serif;
+    color:#818181;
+    padding: 0px;
+    margin: 0px;
+}
+
+.paragraph {
+    font-size:11pt; 
+    font-family: Lao Sangam MN, sans-serif;
+    color:#818181;
+    margin: 10px 20px 10px 20px;
+}
+
+.paragraphC {
+    font-size:10.5pt; 
+    margin-left:5px;
+    margin-right:10px;
+    font-family: Lao Sangam MN, sans-serif;
+    color:#818181;
+}
+
+.headings {
+    font-size:14pt; 
+    font-family: Lao Sangam MN, sans-serif;
+    color:#000000;
+    font-weight: 100;
+    margin: 10px 20px 10px 20px;
+}
+
+
+
+.button {
+  border-radius: 25px;
+  color: #818181;
+  background-color: white;
+  padding: 5px 20px 4px 20px; 
+  font-family: Lao Sangam MN, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: 1px solid #D3D3D3;
+}
+
+.xButton {
+  color: #818181;
+  background-color: white;
+  padding: 0px 10px 10px 10px; 
+  font-family: Lao Sangam MN, sans-serif;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+
+#centerButton {
+    text-align: center;
+}
+
+
+#title {
+    font-family: "Lao Sangam MN", sans-serif;
+    font-size: 25px;
+    text-align: center;
+    color: #818181;
+    
+}
+
+
+.header {
+    padding:4px 12px 12px 12px;
+    background-color: white;
+    border:1px solid #D3D3D3;
+}
+
+.subHeader {
+    padding:2px;
+    border:1px solid #D3D3D3;
+    background-color: #f0faf2;
+}
+
+.bigHeadings {
+    font-size:16pt; 
+    font-family: Lao Sangam MN, sans-serif;
+    color:#818181;
+    font-weight: 100;
+    margin: 10px;
+    text-align: center;
+}
+
+.address {
+    font-family: "Lao Sangam MN", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    margin:0px;
+    color: #818181;
+}
+
+
+#myInput {
+  background-image: url("searchicon.png");
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.finalImg {
+    max-width: 100%;
+    max-height: 300px !important;
+    display: block;
+      margin-left: auto;
+      margin-right: auto;
+}
+
+.uniformContactImg {
+    width: 130px;
+    height: 130px;
+    margin: 0px 0px 15px 15px;
+}

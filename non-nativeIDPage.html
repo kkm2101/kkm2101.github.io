@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Non-native ID Page</title>
+    <style></style>
+    
+    <link rel="stylesheet" href="css/my-app.css" type="text/css">
+    
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    
+    
+    
+</head>
+
+<body style="background-color: #D2E7D6">
+
+    
+    <button class="button" style="margin: 20px 20px 20px 20px" onclick="goBack()">&#8592;</button>
+
+        <script>
+        function goBack() {
+          window.history.back();
+        }
+        </script>
+    
+    <span class="button"  value="Reload Page" onClick="document.location.reload(true)">Reset</span>
+    
+    
+    
+    <!--https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2Fdailyjs%2Fhow-to-remove-array-duplicates-in-es6-5daa8789641c&psig=AOvVaw16gdHycQGf6xJX_l3hU_CR&ust=1596664302339000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMDH8JbEgusCFQAAAAAdAAAAABAI-->
+    
+    
+    <span id="filterButton" onclick="openNav();">ID key</span>
+     <div id="mySidenav" class="sidenavRight" style="background: #FFFFFF !important">
+          <span><a href="javascript:void(0)" class="closebtn; xButton" onclick="closeNav()" style="margin-left: 20px !important">&#10005;</a></span>
+
+        <div id="sideFill"></div>
+    
+    </div>  
+    
+    
+    <form name="search_form" action="javascript:searchSnails();">
+        <input id="myInput" type="text" name="search_query" placeholder="Search for names...">
+    </form>
+    
+
+    <br>
+        <div id="test"></div>
+    
+    
+    
+        <script>
+
+
+        function openNav() {
+          document.getElementById("mySidenav").style.width = "75%";
+        }
+
+        function closeNav() {
+          document.getElementById("mySidenav").style.width = "0";
+        }
+        
+            
+        var nonnativeSnailArray = [
+            ['Allopeas clavulinum','Allopeas_clavulinum.jpg','shell','','','','','','','','','','','','',''],
+            ['Allopeas gracile','Allopeas_gracile.jpg','shell','','','','','','','','','','','','',''],
+            ['Ambigolimax valentianus','Ambigolimax_valentianus.jpg','noshell','','','mantle','','','partialbody','','posterior','nohorseshoe','onethird','','notyellowgrey','threestripes'],
+            ['Arion intermedius','Arion_intermedius.jpg','noshell','','','mantle','','','partialbody','','anterior','','','','',''],
+            ['Beckianum beckianum','Beckianum_beckianum.png','shell','','','','','','','','','','','','',''],
+            ['Bradybaena similaris','Bradybaena_similars.JPG','shell','','','','','','','','','','','','',''],
+            ['Bulimulus guadalupensis','Bulimulus_guadalupensis.jpg','','','','','','','','','','','','','',''],
+            ['Cecilioides aperta','Ceciliodes_aperta.png','shell','','','','','','','','','','','','',''],
+            ['Cornu aspersum','Cornu_aspersum.jpg','shell','','','','','','','','','','','','',''],
+            ['Cyclotropis sp.','Cyclotropis_sp.jpg','shell','','','','','','','','','','','','',''],
+            ['Deroceras laeve',"Deroceras_laeve.jpg",'noshell','','','mantle','','','partialbody','','posterior','nohorseshoe','half','solid','',''],
+            ['Deroceras reticulatum',"Deroceras_reticulatum.jpg",'noshell','','','mantle','','','partialbody','','posterior','nohorseshoe','half','network','',''],
+            ['Euglandina rosea','Euglandina_rosea.jpg','shell','','','','','','','','','','','','',''],
+            ['Gastrocopta servilis','Gastrocopta_servilis.jpg','shell','','','','','','','','','','','','',''],
+            ['Gonaxis kibweziensis','Gonaxis_kibweziensis.jpg','shell','','','','','','','','','','','','',''],
+            ['Gulella bicolor','Gullela_bicolor.png','shell','','','','','','','','','','','','',''],
+            ['Hawaiia minuscula','Hawaii_miniscula.png','shell','','','','','','','','','','','','',''],
+            ['Laevicaulis alte','Laevicaulis_alte.jpg','noshell','','','nomantle','black','','','','','','','','',''],
+            ['Liardetia doliolum','Liardetia_doliolum.jpg','shell','','','','','','','','','','','','',''],
+            ['Limacus flavus','Limacus_flavus.jpg','noshell','','','mantle','','','partialbody','','posterior','nohorseshoe','onethird','','yellowgrey',''],
+            ['Limax maximus','Limax_maximus.jpg','noshell','','','mantle','','','partialbody','','posterior','nohorseshoe','onethird','','notyellowgrey','leopard'],
+            ['Lissachatina fulica','Lissachatina_fulica.jpg','shell','','','','','','','','','','','','',''],
+            ['Meghimatium bilineatum','Meghimatium_bilineatum.jpg','noshell','','','mantle','','','body','grey','','','','','',''],
+            ['Milax gagates','Milax_gagates.jpg','noshell','','','mantle','','','partialbody','','posterior','horseshoe','','','',''],
+            ['Opeas hannense','Opeas_hannense.jpg','shell','','','','','','','','','','','','',''],
+            ['Ovachlamys fulgens','Ovachlamys_fulgens.jpg ','shell','','','','','','','','','','','','',''],
+            ['Oxychilus alliarius','Oxychilus_alliarius.jpg ','shell','','','','','','','','','','','','',''],
+            ['Pallifera sp.','Pallifera.jpg','noshell','','','mantle','','','body','orangebrown','','','','','',''],
+            ['Parmarion martensi','Parmarion_martensi.jpg','shell','','','reducedshell','','','nocoil','','','','','','',''],
+            ['Paropeas achatinaceum','Paropeas_achatinaceum.jpg ','shell','','','','','','','','','','','','',''],
+            ['Polygyra cereolus','Polygyra_cereolus.png ','shell','','','','','','','','','','','','',''],
+            ['Sarasinula plebeia','Sarasinula_plebeia.jpg','noshell','','','nomantle','brown','nomedian','','','','','','','',''],
+            ['Sinployea sp. ','Sinployea.jpg','shell','','','','','','','','','','','','',''],
+            ['Subulina octona','Subulina_octona.jpg','shell','','','','','','','','','','','','',''],
+            ['Succinea costaricana','Succinea_costaricana.jpg','shell','','','','','','','','','','','','',''],
+            ['Succinea tenella','Succinea_unicolor.jpg','shell','','','','','','','','','','','','',''],
+            ['Vallonia pulchella','Vallonia_pulchella.png','shell','','','','','','','','','','','','',''],
+            ['Veronicella cubensis','Veronicella_cubensis.png','noshell','','','nomantle','brown','median','','','','','','','',''],
+            ['Zonitoides arboreus','Zonitoides_arboreus.jpg','shell','','','','','','','','','','','','',''],
+
+            
+        ]
+            
+            
+    // search the animals array
+        function searchSnails() {
+            var lowerQ = document.forms["search_form"]["search_query"].value;
+            
+            //so user can search in lower and uppercase
+            var q = lowerQ.toUpperCase();
+            var outputText = "";
+
+            // search each cell for the query string
+            for (var i = 0; i < nonnativeSnailArray.length; i++) {
+                for (var j = 0; j < 1; j++) {
+                    if (nonnativeSnailArray[i][j].toUpperCase().search(q) != -1) {
+                        
+                        outputText += "<div class=\"carousel-item\">" + "<p id=\"idName\"><i>" + nonnativeSnailArray[i][0] + "</i></p><a href=\"finalPage.html?" + nonnativeSnailArray[i][1] + "\"><img id=\"snailImgList\" class=\"d-block\" src=\"non-nativeSnails/" + nonnativeSnailArray[i][1] + "\"></img></a><br></div>";
+                        break; // need this break to prevent multiple results of the same array
+                    }
+                }
+            }
+
+            // if nothing is found, output a message
+            if (outputText == "") {
+                outputText = "Sorry, no result!"
+            }
+
+            // JQUERY
+            $(document).ready(function()
+            {
+                $('#test').html(outputText);
+            })
+        }
+            
+            
+            
+            
+            
+        var applyFinalOutput = "";
+            for(i = 0; i < nonnativeSnailArray.length; i++) {
+                
+                applyFinalOutput += "<div class=\"carousel-item\">" + "<p id=\"idName\"><i>" + nonnativeSnailArray[i][0] + "</i></p><a href=\"finalPage.html?" + nonnativeSnailArray[i][1] + "\"><img id=\"snailImgList\" class=\"d-block\" src=\"non-nativeSnails/" + nonnativeSnailArray[
+                i][1] + "\"></img></a><br></div>";
+            }
+            
+            
+        var print = document.getElementById("test"); 
+            
+        print.innerHTML = applyFinalOutput;
+            
+            
+            
+
+        
+        function filtering (nonnativeSnailArray) {
+                var filterOutput = ""; 
+
+                for(i = 0; i < nonnativeSnailArray.length; i++) {
+
+                    filterOutput += "<div class=\"carousel-item\">" + "<p id=\"idName\"><i>" + nonnativeSnailArray[i][0] + "</i></p><a href=\"finalPage.html?" + nonnativeSnailArray[i][1] + "\"><img id=\"snailImgList\" class=\"d-block\" src=\"non-nativeSnails/" + nonnativeSnailArray[i][1] + "\"></img></a><br></div>";
+                }
+
+
+                $(document).ready(function()
+                {
+                    $('#test').html(filterOutput);
+                })
+            
+        }
+            
+            
+        var snailParts = [
+            [],
+            ['1','a visible shell','shell'],
+            ['2','no visible shell' ,'noshell'],
+            ['3','a greatly reduced shell' ,'reduced'],
+            ['4','shell not reduced' ,'notreduced'],
+            ['5','a coiled shell','coiled'],
+            ['6','a flat shell with no coil','nocoil'],
+            ['7','no visible mantle','nomantle'],
+            ['8','a visible mantle','mantle'],
+            ['9','black body coloration','black'],
+            ['10','brown body coloration', 'brown'],
+            ['11','dark blotches with white a median line', 'median'],
+            ['12','dark blotches with no median line' ,'nomedian'],
+            ['13','a mantle that covers the entire length of body' ,'body'],
+            ['14','a mantle that does not cover the entire length of body' ,'partialbody'],
+            ['15','grey body coloration' ,'grey'],
+            ['16','orange/brown body coloration' ,'orangebrown'],
+            ['17','pneumostome located anterior to or at midpoint of mantle' ,'anterior'],
+            ['18','pneumostome located posterior to or at midpoint of mantle' ,'posterior'],
+            ['19','a mantle with a horseshoe-shaped furrow' ,'horseshoe'],
+            ['20','a mantle without a horseshoe-shaped furrow','nohorseshoe'],
+            ['21','a mantle that covers half of the dorsal surface; a short keel at the posterior tip' ,'half'],
+            ['22','a mantle that covers one-third of the dorsal surface; a keel that extends from edge of mantle to the posterior tip' ,'onethird'],
+            ['23','a mantle with a network-like pattern' ,'network'],
+            ['24','a mantle with solid coloration','solid'],
+            ['25','yellow-grey body coloration' ,'yellowgrey'],
+            ['26',"orange, brown, or grey body coloration ",'notyellowgrey'],
+            ['27','three black strips on mantle' ,'threestripes'],
+            ['28','leopard spots or blotches on mantle and body','leopard'],
+            ['29','Shell length of 15-20 mm','fifteenmm'],
+            ['30','Shell length of 10-15 mm','tenmm'],
+            ['31','a helical spiral shell; wider than tall','helicalspiral'],
+            ['32','a conical shell; taller than wide','conical'],
+            ['33','a discoidal (very flat) shell','discoidal'],
+            ['34','a heliciform (higher spire) shell','heliciform'],
+            ['35','a globose (higher spire and rounded) shell','globose'],
+            ['36','a depressed (less higher spired) shell','depressed'],
+            ['37','beehive-shaped','beehive'],
+            ['38','not beehive-shaped','notbeehive'],
+            ['39','uniform light brown shell coloration with chestnut banding; 12-16 mm adult shell width','chestnut'],
+            ['40','yellow to brown shell coloration with black banding (black); 28-45 mm adult shell width','black'],
+            ['41','shell ribbing','ribbing'],
+            ['42','no shell ribbing','noribbing'],
+            ['43','a caudal horn','caudal'],
+            ['44','no caudal horn','nocaudal'],
+            ['45','shell striations','striations'],
+            ['46','no shell striations','nostriations'],
+            ['47','beehive-shaped','beehive'],
+            ['48','not beehive-shaped','notbeehive'],
+            ['49','a bulimoid shell','bulimoid'],
+            ['50','a subcylindrical shell','subcylindrical'],
+            ['51','a shiny shell','shiny'],//45 on key
+            ['52','a translucent shell','translucent'],//46 on key
+        ]
+            
+        //fills the sidebar page   
+        function page(num1, num2, num3){
+            
+            if (num1 == 1) {
+                sideItems = '<p class="paragraph">Use dichotomous key below to identify your non-native snail. You may exit & re-enter at any time.</p><br><button class="button" onclick="click' + num1 +'();">' + '<img style="width: 100% !important"  src="id/' + num1 + '.jpg"><img>' + snailParts[num1][1] + '</button><br><br>' + '<button class="button" onclick="click' + num2+'();">' + '<img style="width: 100% !important" src="id/' + num2 + '.jpg"><img>' + snailParts[num2][1] +'</button>'; 
+            } else {
+                sideItems = '<br><button style="margin:0px 0px 20px 10px" class="button" onclick="undoClick' + num3 + '();  undoClicked(); ">Undo</button><br><button class="button" onclick="click' + num1 +'();">' + '<img style="width: 100% !important"  src="id/' + num1 + '.jpg"><img>' + snailParts[num1][1] + '</button><br><br>' + '<button class="button" onclick="click' + num2+'();">' + '<img style="width: 100% !important" src="id/' + num2 + '.jpg"><img>' + snailParts[num2][1] +'</button>'; 
+            }
+            
+                            
+            $(document).ready(function()
+            {
+                $('#sideFill').html(sideItems);
+            })
+            
+        }          
+        
+            
+        function final(){
+            
+            sideItems = '<p class="paragraph">Press exit button (X) to see your snail!</p>'
+            
+                            
+            $(document).ready(function()
+            {
+                $('#sideFill').html(sideItems);
+            })
+            
+        }          
+            
+        function shelledInProgress(){
+            
+            sideItems = '<p class="paragraph">Shelled key in progress. Press exit button (X) to see all shelled snails!</p>'
+            
+                            
+            $(document).ready(function()
+            {
+                $('#sideFill').html(sideItems);
+            })
+            
+        }          
+        
+            
+        //memento: https://stackoverflow.com/questions/54416318/how-to-make-a-undo-redo-function/54416376#54416376
+        
+        var sideItems = "";
+        var undo = [nonnativeSnailArray]
+            
+        
+        function undoClicked() {
+            $(document).ready(function()
+            {
+                $('#sideFill').html(filtering(undo[undo.length - 1]));
+            })
+            nonnativeSnailArray = undo[undo.length-1];
+            undo.pop();
+        }  
+        
+///START OF SPECIFIC PAGES////
+
+        page(1,2);
+           
+        function undoClick0(){
+            page(1,2);
+        }
+        
+        //array.length - 1;
+        function click1(){
+            undo.push(nonnativeSnailArray);
+            
+            function checker(snailCheck) {
+                return snailCheck[2] == snailParts[1][2];
+            }
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            shelledInProgress();
+            //page(3,4,0);
+        }
+        function undoClick1(){
+            //page(3,4,0);
+        }
+        
+ 
+        function click2(){
+            undo.push(nonnativeSnailArray);
+            
+            function checker(snailCheck) {
+                return snailCheck[2] == snailParts[2][2];
+            }
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(7,8,0);       
+        }
+        function undoClick2(){
+            page(7,8,0);
+        }
+            
+        function click3(){
+            undo.push(nonnativeSnailArray);
+            
+            function checker(snailCheck) {
+                return snailCheck[3] == snailParts[3][2];
+            }
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(5,6,1);
+        }
+        function undoClick3(){
+            page(5,6,1);
+        }
+            
+        function click4(){
+            function checker(snailCheck) {
+                return snailCheck[3] == snailParts[4][2];
+            }
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(31,32,1);
+        }
+        function undoClick4(){
+            page(31,32,1);
+        }
+            
+        function click5(){
+            function checker(snailCheck) {
+                return snailCheck[4] == snailParts[5][2];
+            }
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(29,30,3);
+        }
+        function undoClick5(){
+            page(29,30,3);
+        }
+            
+        function click6(){
+            function checker(snailCheck) {
+                return snailCheck[4] == snailParts[6][2];
+            }
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click7(){
+            undo.push(nonnativeSnailArray);
+            
+            function checker(snailCheck) {
+                return snailCheck[5] == snailParts[7][2];
+            }
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(9,10,2);
+        }
+        function undoClick7(){
+            page(9,10,2);
+        }
+    
+        
+        function click8(){
+            undo.push(nonnativeSnailArray);
+            
+            function checker(snailCheck) {
+                return snailCheck[5] == snailParts[8][2];
+            }
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(13,14,2);
+        }
+        function undoClick8(){
+            page(13,14,2);
+        }
+        
+        function click9(){
+            function checker(snailCheck) {
+                return snailCheck[6] == snailParts[9][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+        
+        function click10(){
+            function checker(snailCheck) {
+                return snailCheck[6] == snailParts[10][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            
+            page(11,12,7);
+        }
+        function undoClick10(){
+            page(11,12,7);
+        }
+        
+        function click11(){
+            function checker(snailCheck) {
+                return snailCheck[7] == snailParts[11][2];
+            }
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click12(){
+            function checker(snailCheck) {
+                return snailCheck[7] == snailParts[12][2];
+            }
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+        
+        function click13(){
+            undo.push(nonnativeSnailArray);
+            function checker(snailCheck) {
+                return snailCheck[8] == snailParts[13][2];
+            }
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(15,16,8);
+        }
+        function undoClick13(){
+            page(15,16,8);
+        }
+            
+        function click14(){
+            undo.push(nonnativeSnailArray);
+            
+            function checker(snailCheck) {
+                return snailCheck[8] == snailParts[14][2];
+            }
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(17,18,8);
+        }
+        function undoClick14(){
+            page(17,18,8);
+        }
+            
+        
+        function click15(){
+            function checker(snailCheck) {
+                return snailCheck[9] == snailParts[15][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+            
+        function click16(){
+            function checker(snailCheck) {
+                return snailCheck[9] == snailParts[16][2];
+            }
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+            
+        function click17(){
+            function checker(snailCheck) {
+                return snailCheck[10] == snailParts[17][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click18(){
+            function checker(snailCheck) {
+                return snailCheck[10] == snailParts[18][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(19,20,14);
+        }
+        function undoClick18(){
+            page(19,20,14);
+        }
+            
+        function click19(){
+            function checker(snailCheck) {
+                return snailCheck[11] == snailParts[19][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+            
+        function click20(){
+            function checker(snailCheck) {
+                return snailCheck[11] == snailParts[20][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(21,22,18);
+        }
+        function undoClick20(){
+            page(21,22,18);
+        }
+            
+        function click21(){
+            function checker(snailCheck) {
+                return snailCheck[12] == snailParts[21][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(23,24,20);
+        }
+        function undoClick21(){
+            page(23,24,20);
+            undoClicked();
+        }
+            
+        function click22(){
+            function checker(snailCheck) {
+                return snailCheck[12] == snailParts[22][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(25,26,20);
+        }   
+        function undoClick22(){
+            page(25,26,20);
+        }
+            
+        function click23(){
+            function checker(snailCheck) {
+                return snailCheck[13] == snailParts[23][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+            
+        function click24(){
+            function checker(snailCheck) {
+                return snailCheck[13] == snailParts[24][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+            
+        function click25(){
+            function checker(snailCheck) {
+                return snailCheck[14] == snailParts[25][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click26(){
+            function checker(snailCheck) {
+                return snailCheck[14] == snailParts[26][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(27,28,22);
+        }
+        function undoClick26(){
+            page(27,28,22);
+        }
+            
+            
+        function click27(){
+            function checker(snailCheck) {
+                return snailCheck[15] == snailParts[27][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click28(){
+            function checker(snailCheck) {
+                return snailCheck[15] == snailParts[28][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+        
+        function click29(){
+            function checker(snailCheck) {
+                return snailCheck[16] == snailParts[29][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+        
+        function click30(){
+            function checker(snailCheck) {
+                return snailCheck[16] == snailParts[30][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click31(){
+            function checker(snailCheck) {
+                return snailCheck[17] == snailParts[31][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(33,34,4);
+        }
+        function undoClick31(){
+            page(33,34,4);
+        }
+        
+        function click32(){
+            function checker(snailCheck) {
+                return snailCheck[17] == snailParts[32][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(47,48,4);
+        }
+        function undoClick32(){
+            page(47,48,4);
+        }
+            
+        function click33(){
+            function checker(snailCheck) {
+                return snailCheck[18] == snailParts[33][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click34(){
+            function checker(snailCheck) {
+                return snailCheck[18] == snailParts[34][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(35,36,32);
+        }
+        function undoClick34(){
+            page(35,36,32);
+        }
+            
+            
+        function click35(){
+            function checker(snailCheck) {
+                return snailCheck[19] == snailParts[35][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(37,38,34);
+        }
+        function undoClick35(){
+            page(37,38,34);
+        }
+        
+        function click36(){
+            function checker(snailCheck) {
+                return snailCheck[19] == snailParts[36][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(41,42,34);
+        }
+        function undoClick36(){
+            page(41,42,34);
+        }
+        
+        function click37(){
+            function checker(snailCheck) {
+                return snailCheck[20] == snailParts[37][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+        
+        function click38(){
+            function checker(snailCheck) {
+                return snailCheck[20] == snailParts[38][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(39,40,35);
+        }
+        function undoClick38(){
+            page(39,40,35);
+        }
+            
+        
+        function click39(){
+            function checker(snailCheck) {
+                return snailCheck[21] == snailParts[39][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click40(){
+            function checker(snailCheck) {
+                return snailCheck[21] == snailParts[40][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click41(){
+            function checker(snailCheck) {
+                return snailCheck[22] == snailParts[41][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }
+            
+        function click42(){
+            function checker(snailCheck) {
+                return snailCheck[22] == snailParts[42][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(43,44,36);
+        }
+        function undoClick42(){
+            page(43,44,36);
+        }
+        
+        function click43(){
+            function checker(snailCheck) {
+                return snailCheck[23] == snailParts[43][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }    
+            
+        function click44(){
+            function checker(snailCheck) {
+                return snailCheck[23] == snailParts[44][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(45,46,42);
+        }
+        function undoClick44(){
+            page(45,46,42);
+        }
+            
+            
+        function click45(){
+            function checker(snailCheck) {
+                return snailCheck[24] == snailParts[45][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            final();
+        }    
+        
+        function click46(){
+            function checker(snailCheck) {
+                return snailCheck[24] == snailParts[46][2];
+            }
+            
+            undo.push(nonnativeSnailArray);
+            
+            nonnativeSnailArray = nonnativeSnailArray.filter(checker);
+            filtering(nonnativeSnailArray);
+            page(51,52,44);
+        }
+        function undoClick46(){
+            page(51,52,44);
+        }
+             
+        
+            
+            
+///END OF SPECIFIC PAGES////
+            
+              </script>
+
+        <br>
+    
+    
+    <!---FILTER END-->
+    
+    
+    <!--https://wordpress.org/plugins/woocommerce-ajax-filters/#installation-->
+    
+    
+    
+</body>
+
+</html>
+            
+            
